@@ -18,13 +18,19 @@ public class MybatisPlusBootApplicationTests {
     @Autowired
     private UserMapper userMapper;
 
+    //批量查询
     @Test
     public void testSelectBatch() {
         System.out.println("进入test");
-
         List<User> users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
         users.forEach(System.out::println);
+    }
 
+    //没有查询条件
+    @Test
+    public void testSelectList(){
+        List<User> users = userMapper.selectList(null);
+        System.out.println(users);
     }
 
 }
