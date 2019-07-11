@@ -22,5 +22,4 @@ public class MybatisPlusConfig {
         return new OptimisticLockerInterceptor();
     }
 
-
 }
