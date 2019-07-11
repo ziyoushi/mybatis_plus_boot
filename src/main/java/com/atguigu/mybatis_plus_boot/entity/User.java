@@ -2,6 +2,7 @@ package com.atguigu.mybatis_plus_boot.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
@@ -33,6 +34,11 @@ public class User {
     //在实体中添加version 乐观锁
     @Version
     private Integer version;
+
+    //逻辑删除
+    @TableField(fill = FieldFill.INSERT)
+    @TableLogic
+    private Integer deleted;
 
 
 }
