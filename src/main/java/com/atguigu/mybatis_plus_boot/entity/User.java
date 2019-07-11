@@ -1,6 +1,11 @@
 package com.atguigu.mybatis_plus_boot.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @author Administrator
@@ -17,4 +22,17 @@ public class User {
     private String name;
     private Integer age;
     private String email;
+
+    //自动填充 在实体类上添加字段并添加注解
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    //在实体中添加version 乐观锁
+    @Version
+    private Integer version;
+
+
 }
